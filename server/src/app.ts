@@ -51,3 +51,5 @@ app.get("/health/ready", async (_req, res) => {
 app.use("/api", rateLimit, express.json({ limit: "16kb" }), routes);
 app.use((_req, _res, next) => next(new HttpError(404, "Route not found")));
 app.use(errorHandler);
+
+export default app;
