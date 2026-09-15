@@ -1,0 +1,11 @@
+import { subscribe } from "../controllers/newsletterController.js";
+import { Router } from "express";
+import { listServices } from "../controllers/catalogController.js";
+import { checkout } from "../controllers/checkoutController.js";
+import { contact } from "../controllers/contactController.js";
+import { cache } from "../middleware/cache.js";
+export const routes = Router();
+routes.get("/services", cache("studio:catalog:v1"), listServices);
+routes.post("/checkout/quote", checkout);
+routes.post("/newsletter", subscribe);
+routes.post("/contact", contact);
