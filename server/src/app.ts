@@ -1,5 +1,7 @@
 import express from "express";
-import * as helmetModule from "helmet";
+import { createRequire } from "node:module";
+const require = createRequire(import.meta.url);
+const helmet = require("helmet");
 import cors from "cors";
 import { pinoHttp } from "pino-http";
 import { randomUUID } from "node:crypto";
@@ -27,7 +29,7 @@ app.use(
     },
   }),
 );
-app.use(helmetModule.default());
+app.use(helmet());
 app.use(
   cors({
     origin: config.CORS_ORIGIN,
