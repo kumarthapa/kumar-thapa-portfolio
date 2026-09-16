@@ -1,6 +1,10 @@
 import { createHash } from "node:crypto";
 import type { RequestHandler } from "express";
-import { redis, bounded } from "../lib/redis.js";
+import {
+  redis,
+  bounded,
+  ensureRedisConnected,
+} from "../lib/redis.js";
 import { logger } from "../lib/logger.js";
 import { config } from "../config.js";
 import { HttpError } from "./errors.js";
@@ -10,6 +14,8 @@ const script = `local n=redis.call('INCR',KEYS[1]); if n==1 then redis.call('PEX
 
 export const rateLimit: RequestHandler = async (req, res, next) => {
   try {
+    await bounded(ensureRedisConnected());
+
     const ip = createHash("sha256")
       .update(req.ip || req.socket.remoteAddress || "unknown")
       .digest("hex");
@@ -35,10 +41,7 @@ export const rateLimit: RequestHandler = async (req, res, next) => {
 
     next();
   } catch (error) {
-    logger.error(
-      { err: error },
-      "Rate limiter Redis operation failed",
-    );
+    logger.error({ err: error }, "Rate limiter Redis operation failed");
 
     next(
       error instanceof HttpError
