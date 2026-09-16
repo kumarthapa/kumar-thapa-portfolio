@@ -16,6 +16,26 @@ redis.on("error", (error) =>
   logger.error({ err: error }, "Redis connection error"),
 );
 
+let connectPromise: Promise<void> | null = null;
+
+export async function ensureRedisConnected(): Promise<void> {
+  if (redis.isReady) return;
+
+  if (!connectPromise) {
+    connectPromise = (redis.isOpen ? Promise.resolve() : redis.connect())
+      .then(() => undefined)
+      .finally(() => {
+        connectPromise = null;
+      });
+  }
+
+  await connectPromise;
+
+  if (!redis.isReady) {
+    throw new Error("Redis client is not ready");
+  }
+}
+
 export function bounded<T>(operation: Promise<T>, ms = 1500): Promise<T> {
   let timer: NodeJS.Timeout;
   return Promise.race([
