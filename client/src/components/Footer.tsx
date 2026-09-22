@@ -1,10 +1,12 @@
 "use client";
 import Link from "next/link";
 import { BrandLogo } from "./BrandLogo";
-import { ArrowUpRight, Github, Linkedin, Instagram } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import { api } from "@/lib/api";
+import { useTheme } from "./ThemeProvider";
 export function Footer() {
+  const { theme } = useTheme();
   const [status, setStatus] = useState("");
   const [busy, setBusy] = useState(false);
   return (
@@ -85,39 +87,34 @@ export function Footer() {
         </div>
         <div className="footer-links">
           <Link className="footer-brand" href="/" aria-label="KUMARTHAPA home">
-            <BrandLogo />
+            <BrandLogo theme={theme === "white" ? "light" : "dark"} />
           </Link>
           <div>
             <h3>Explore</h3>
-            <Link href="/#services">Services</Link>
-            <Link href="/#approach">Our approach</Link>
+            <Link href="/services#services">Services</Link>
+            <Link href="/projects">Projects</Link>
+            <Link href="/showcase">Showcase</Link>
+            <Link href="/about">About</Link>
             <Link href="/contact">Let’s talk</Link>
             <Link href="/checkout">Checkout</Link>
           </div>
           <div>
             <h3>What we do</h3>
-            <Link href="/#services">Design & branding</Link>
-            <Link href="/#services">Web development</Link>
-            <Link href="/#services">Cloud & infrastructure</Link>
+            <Link href="/services#services">Design & branding</Link>
+            <Link href="/services#services">Web development</Link>
+            <Link href="/services#services">Cloud & infrastructure</Link>
           </div>
           <div>
-            <h3>Find inspiration</h3>
-            <div className="socials">
-              <a href="https://github.com" aria-label="GitHub platform">
-                <Github />
-              </a>
-              <a href="https://linkedin.com" aria-label="LinkedIn platform">
-                <Linkedin />
-              </a>
-              <a href="https://instagram.com" aria-label="Instagram platform">
-                <Instagram />
-              </a>
-            </div>
-            <p>Platform links · demo profiles</p>
+            <h3>Discover the work</h3>
+            <Link href="/projects">Software concepts</Link>
+            <Link href="/showcase">Website demos</Link>
+            <Link href="/contact">Discuss your project</Link>
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© {new Date().getFullYear()} KUMARTHAPA. Demo storefront.</span>
+          <span>
+            © {new Date().getFullYear()} KUMARTHAPA. Built with purpose.
+          </span>
           <span>Thoughtfully designed. Carefully built.</span>
         </div>
       </div>

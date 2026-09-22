@@ -147,7 +147,7 @@ export default function LetsTalk() {
             </ol>
           </div>
 
-          <Link className={styles.exploreLink} href="/#services">
+          <Link className={styles.exploreLink} href="/services#services">
             Explore our services <ArrowUpRight size={18} aria-hidden="true" />
           </Link>
         </section>
@@ -171,7 +171,7 @@ export default function LetsTalk() {
               >
                 Start another inquiry <ArrowUpRight size={18} aria-hidden="true" />
               </button>
-              <Link className={styles.exploreLink} href="/#services">
+              <Link className={styles.exploreLink} href="/services#services">
                 Browse our services
               </Link>
             </div>

@@ -39,7 +39,7 @@ export default function Checkout() {
   const currentQuote = quotedPayload === payload ? quote : null;
   return (
     <main id="main" className="container checkout">
-      <Link className="back-link" href="/#services">
+      <Link className="back-link" href="/services#services">
         <ArrowLeft size={17} /> Back to services
       </Link>
       <span className="eyebrow">ONE STEP CLOSER</span>
@@ -52,7 +52,7 @@ export default function Checkout() {
       ) : items.length === 0 ? (
         <div className="empty">
           <h2>Your cart is empty.</h2>
-          <Link className="primary" href="/#services">
+          <Link className="primary" href="/services#services">
             Explore services
           </Link>
         </div>

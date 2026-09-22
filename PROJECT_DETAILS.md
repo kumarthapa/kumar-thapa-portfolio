@@ -51,7 +51,11 @@ Sources: [client lockfile](client/package-lock.json), [server lockfile](server/p
 
 | Feature | Current behavior |
 | --- | --- |
-| Homepage | Hero section, service catalog, approach section, shared header and footer |
+| Homepage | Portfolio introduction, capabilities, selected projects and showcase concepts |
+| Projects | Six filterable industrial concepts and individual project pages |
+| Showcase | Six distinct interactive demo websites with generated visuals and editable sample content |
+| Themes | White by default; Blue and Black selectable in the header, remembered locally |
+| Services | Original API-backed catalog and ordering flow at `/services` |
 | Category filters | All services, Design, Development, and Infrastructure |
 | Service cards | Name, description, sample price, image, and delivery window |
 | Cart | Add services, merge repeated additions, change quantities, remove items, and display subtotal |
@@ -62,7 +66,7 @@ Sources: [client lockfile](client/package-lock.json), [server lockfile](server/p
 | Newsletter form | Requires consent and an HTTPS provider adapter; returns 503 when unavailable |
 | Branding | Company logos and KT mark are included as local image assets |
 
-The main pages are defined by [the homepage](client/src/app/page.tsx) and [checkout](client/src/app/checkout/page.tsx). [The root layout](client/src/app/layout.tsx) adds the shared providers, header, footer, and cart drawer. There are also not-found and error components.
+The portfolio is defined by [the homepage](client/src/app/page.tsx), with the original catalog at [services](client/src/app/services/page.tsx) and estimate flow at [checkout](client/src/app/checkout/page.tsx). See [Portfolio Content](PORTFOLIO_CONTENT.md) for all new routes and editable visual assets. [The root layout](client/src/app/layout.tsx) adds the shared providers, header, footer, and cart drawer. There are also not-found and error components.
 
 ### Included service catalog
 
@@ -317,7 +321,7 @@ npm --prefix client test
 npm --prefix client run build
 ```
 
-Both packages also provide `dev`, `start`, and `typecheck` scripts. `server` development uses `tsx watch`; `client` development uses `next dev`. For development, Next.js forwards `/api/*` and `/health/*` to `http://127.0.0.1:4000`; production routing remains in Nginx. A complete host development stack needs a running local Redis server and both npm development processes. The root `.env` is not automatically loaded by the server's npm scripts. See [RUN_COMMANDS.md](RUN_COMMANDS.md) for both Docker and local development commands.
+Both packages also provide `dev`, `start`, and `typecheck` scripts. `server` development uses `tsx watch`; `client` development uses `next dev`. Next.js forwards `/api/*` and `/health/*` to `API_URL` (default `http://127.0.0.1:4000`) in development and production. Docker Compose routes these requests through Nginx. A complete host development stack needs a running local Redis server and both npm development processes. The root `.env` is not automatically loaded by the server's npm scripts. See [RUN_COMMANDS.md](RUN_COMMANDS.md) for both Docker and local development commands.
 
 With the Docker stack running, verify its API and Redis behavior:
 
@@ -367,7 +371,7 @@ After changing catalog data, rebuild the server. Previously cached catalog respo
 | Code edits do not appear | Rebuild the affected image with `docker compose up --build` |
 | Newsletter signup returns 503 | Configure a working HTTPS adapter and recreate the server |
 | Package download times out through an npm mirror | For host installs, retry with `npm --prefix client ci --registry=https://registry.npmjs.org` |
-| Service photos do not load | The demo photos use external Unsplash URLs; check connectivity or replace the assets |
+| Service photos do not load | The concept assets are local; check the catalog image path against `client/public/visuals/` |
 
 ## 12. Current scope and future work
 

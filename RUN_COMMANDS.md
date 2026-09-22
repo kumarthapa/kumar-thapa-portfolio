@@ -2,12 +2,13 @@
 
 Use one method at a time: both use **http://localhost:8080**.
 
+Run these commands from the project root, the directory containing `docker-compose.yml` and the `client` and `server` folders.
+
 ## With Docker
 
 Run from a terminal:
 
 ```bash
-cd ~/Downloads/Mycomlogo/kumarthapa-fullstack/service-studio
 sudo docker compose up --build --wait --wait-timeout 180
 ```
 
@@ -16,7 +17,6 @@ Docker runs the frontend, API, Redis, and Nginx together in the background. The 
 Stop:
 
 ```bash
-cd ~/Downloads/Mycomlogo/kumarthapa-fullstack/service-studio
 sudo docker compose down
 ```
 
@@ -27,7 +27,6 @@ Requires Node.js 22+ and a local Redis server. The frontend and backend reload w
 ### One-time setup
 
 ```bash
-cd ~/Downloads/Mycomlogo/kumarthapa-fullstack/service-studio
 sudo apt update
 sudo apt install -y redis-server
 npm --prefix server ci --registry=https://registry.npmjs.org
@@ -41,7 +40,6 @@ If the Docker version is running, stop it with the Docker stop command above to 
 Terminal 1 — start Redis and the backend:
 
 ```bash
-cd ~/Downloads/Mycomlogo/kumarthapa-fullstack/service-studio
 sudo systemctl start redis-server
 REDIS_URL=redis://127.0.0.1:6379 npm --prefix server run dev
 ```
@@ -49,7 +47,6 @@ REDIS_URL=redis://127.0.0.1:6379 npm --prefix server run dev
 Terminal 2 — start the frontend:
 
 ```bash
-cd ~/Downloads/Mycomlogo/kumarthapa-fullstack/service-studio
 npm --prefix client run dev -- --hostname 127.0.0.1 --port 8080
 ```
 

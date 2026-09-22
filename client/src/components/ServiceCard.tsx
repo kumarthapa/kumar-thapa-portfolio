@@ -1,4 +1,5 @@
 "use client";
+import { AssetImage } from "./portfolio/AssetImage";
 import { motion } from "framer-motion";
 import { Plus, Clock3 } from "lucide-react";
 import type { Service } from "@/lib/types";
@@ -23,12 +24,13 @@ export function ServiceCard({
       transition={{ duration: 0.4, delay: index * 0.04 }}
     >
       <div className="service-image">
-        <img
-          src={service.image}
-          alt=""
-          loading="lazy"
-          width="1000"
-          height="640"
+        <AssetImage
+          asset={{
+            src: service.image,
+            alt: service.name + " concept visual",
+            origin: "generated-concept",
+          }}
+          sizes="(max-width: 760px) 100vw, 33vw"
         />
         <span>{service.category}</span>
       </div>

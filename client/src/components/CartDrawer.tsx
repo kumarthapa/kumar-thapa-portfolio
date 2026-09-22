@@ -6,7 +6,9 @@ import { X, Plus, Minus, Trash2, ShoppingBag, ArrowRight } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setOpen, setQuantity, remove } from "@/store/cartSlice";
 import { money } from "@/lib/api";
+import { useTheme } from "./ThemeProvider";
 export function CartDrawer() {
+  const { theme } = useTheme();
   const { open, items } = useAppSelector((s) => s.cart);
   const dispatch = useAppDispatch();
   const panel = useRef<HTMLDivElement>(null);
@@ -59,7 +61,7 @@ export function CartDrawer() {
   return (
     <AnimatePresence>
       {open && (
-        <div className="cart-layer">
+        <div className="cart-layer site-frame" data-theme={theme}>
           <motion.div
             className="cart-backdrop"
             initial={{ opacity: 0 }}
@@ -96,12 +98,13 @@ export function CartDrawer() {
                   <ShoppingBag size={44} />
                   <h3>A little empty in here.</h3>
                   <p>Find the right service for your next project.</p>
-                  <button
+                  <Link
                     className="primary"
+                    href="/services#services"
                     onClick={() => dispatch(setOpen(false))}
                   >
                     Explore services
-                  </button>
+                  </Link>
                 </div>
               ) : (
                 items.map(({ service, quantity }) => (

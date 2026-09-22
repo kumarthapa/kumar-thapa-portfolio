@@ -1,0 +1,58 @@
+[
+  {
+    "slug": "spa",
+    "prompt": "Use case: photorealistic-natural. Asset type: premium wellness website hero photograph. Create one wide landscape editorial photograph for a fictional boutique spa named Avela (do not render any text). A serene sculptural warm limestone spa interior with a still emerald plunge pool, archways, soft cream linen draped on a travertine massage table, a single olive branch in a ceramic vase, diffused morning sunlight. No people. Sophisticated organic luxury, muted sage, warm cream, sand, natural textures. Architectural magazine photography, strong depth, no text, no watermark, no collage. Wide 3:2 composition."
+  },
+  {
+    "slug": "restaurant",
+    "prompt": "Use case: photorealistic-natural. Asset type: restaurant website hero photography. Create one landscape cinematic editorial food photograph, overhead diagonal view of a rustic Italian supper table: beautiful handmade tomato pappardelle in a cream ceramic plate, charred focaccia, ripe heirloom tomatoes, fresh basil, olive oil, linen napkin and warm candlelight. Rich burgundy shadows, burnt orange, butter yellow, dark oak table. Warm lively independent restaurant mood, authentic texture, art-directed magazine food photography, no text, no people, no watermark, no collage. Wide 3:2 composition."
+  },
+  {
+    "slug": "hotel",
+    "prompt": "Use case: photorealistic-natural. Asset type: luxury mountain lodge hospitality website hero photograph. Create one wide landscape editorial photograph of an intimate contemporary timber and stone mountain lodge at the edge of an alpine lake, outdoor infinity pool in foreground reflecting the peaks, towering Dolomite-like mountains at sunrise, fine mist, warm golden lights through large windows, a few empty loungers. Refined quiet hospitality, sage forest and pale sky, photographic realism, no people, no text, no logos, no watermark, no collage. Wide 3:2 composition."
+  },
+  {
+    "slug": "retail",
+    "prompt": "Use case: product-mockup. Asset type: independent furniture store ecommerce hero photograph. Create one landscape luxury editorial interior photograph: sculptural caramel oak lounge chair with oatmeal bouclé cushion, cylindrical dark walnut side table, irregular pale clay vase with a dry branch, large cream paper pendant overhead. Set in sunny minimalist apartment with polished concrete floor, limewashed warm gray walls, dramatic late afternoon diagonal sunlight, plenty of breathing room. Quiet functional Scandinavian design, tangible material detail, no people, no text, no watermark, no collage. Wide 3:2 composition."
+  },
+  {
+    "slug": "business",
+    "prompt": "Use case: stylized-concept. Asset type: contemporary SaaS planning software marketing website hero artwork. One landscape premium 3D abstract sculpture of three translucent rounded glass and solid matte lavender architectural arches intertwined with an electric lime sphere, arranged on a warm white matte ground, soft directional shadows, pale periwinkle reflection. Minimal graphic composition, playful but precise, professional product design aesthetic, no text, no UI, no laptop, no watermark, no collage. Wide 3:2 composition."
+  },
+  {
+    "slug": "lifestyle",
+    "prompt": "Use case: photorealistic-natural. Asset type: outdoor adventure guide lifestyle website hero photograph. One wide landscape cinematic editorial photograph of a lone adult hiker in mustard technical jacket with a small backpack, seen from behind walking along a ridge above dramatic green mountains and deep blue lake at early sunrise. Atmospheric broad landscape, tiny subject in scale, quiet adventurous mood, natural film grain, earthy pine green and rust colors, no visible face, no text, no watermark, no collage. Wide 3:2 composition."
+  },
+  {
+    "slug": "studio",
+    "prompt": "Use case: stylized-concept. Asset type: dark personal developer portfolio hero background art. One landscape high-end cinematic 3D render of a modern developer workstation in a deep midnight navy studio: floating slim glass interface panels with small illegible cyan code-like lines, an open dark silver laptop on a matte black desk, electric blue rim lights, a softly illuminated translucent cube connecting to three smaller cyan glass blocks. Screen interfaces abstract, no readable text, no brand logo, no people. Composition concentrated on right half with dark negative space left, crisp premium materials, restrained blue glow and volumetric light, no excessive neon, no watermark, no collage. Wide 3:2 composition."
+  },
+  {
+    "slug": "hotel-lake-room",
+    "prompt": "Photorealistic luxury hospitality editorial photograph, wide 3:2. A quiet alpine lodge bedroom with a king bed in natural cream linen, warm oak paneling, soft wool throw, floor to ceiling window and private balcony overlooking an alpine lake and mountains. Early morning light, tranquil and elegant, refined European architecture. No people, no text, no logo, no watermark. One photograph."
+  },
+  {
+    "slug": "hotel-forest-suite",
+    "prompt": "Photorealistic luxury hospitality editorial photograph, wide 3:2. Spacious intimate alpine lodge suite, warm timber walls, a stone fireplace with soft flames, linen sofa beside a king bed, glass doors opening onto a forest terrace with evergreen trees. Quiet natural muted green and taupe palette, beautiful soft afternoon light. No people, no text, no logo, no watermark. One photograph."
+  },
+  {
+    "slug": "retail-chair",
+    "prompt": "Premium ecommerce furniture editorial product photograph, wide 3:2. One sculptural natural oak lounge chair with thick oatmeal boucle seat and back cushion, precisely made curved oak frame, alone against a warm off white seamless plaster backdrop with subtle floor shadow. Large soft side light, realistic wood grain and tactile fabric, minimal composition, all of the chair visible, no other objects, no text, no logo, no people, no watermark."
+  },
+  {
+    "slug": "retail-table",
+    "prompt": "Premium ecommerce furniture editorial product photograph, wide 3:2. One compact cylindrical solid dark walnut side table with round top and simple thick drum base, alone against a warm off white seamless plaster backdrop with subtle floor shadow. Beautiful visible walnut grain, minimal quiet natural design, large soft side light, all of the table visible, no other objects, no text, no logo, no people, no watermark."
+  },
+  {
+    "slug": "retail-vase",
+    "prompt": "Premium ecommerce homeware editorial product photograph, wide 3:2. One irregular hand formed pale clay stoneware vase with chalk white matte glaze and a single delicate dry branch, alone against warm off white plaster seamless background. Soft side light, organic silhouette and natural tactile ceramic texture, all of the vase visible, minimal sophisticated composition, no other objects, no text, no logo, no people, no watermark."
+  },
+  {
+    "slug": "journey-lakeside",
+    "prompt": "Photorealistic outdoor adventure travel editorial photograph, wide 3:2. A peaceful easy walking trail along the shore of a deep blue alpine lake, reeds and meadow wildflowers in foreground, green forest and mountains in distance, a tiny adult hiker walking away in the distance. Soft morning light, earthy pine and ochre colors, natural film photograph, no text, no logos, no watermark."
+  },
+  {
+    "slug": "journey-camp",
+    "prompt": "Photorealistic outdoor adventure travel editorial photograph, wide 3:2. An inviting small rustic timber mountain hut in a meadow at the edge of a pine forest, a hiking backpack leaning by the door, mountain peaks in the distance, soft golden twilight and warm light through hut windows, serene off-grid weekend atmosphere. No people, no text, no logo, no watermark. One editorial photograph."
+  }
+]

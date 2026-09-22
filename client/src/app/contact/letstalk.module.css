@@ -9,7 +9,7 @@
 }
 
 .backLink:hover {
-  color: var(--blue);
+  color: var(--accent, var(--blue));
 }
 
 .layout {
@@ -24,7 +24,7 @@
 }
 
 .eyebrow {
-  color: var(--blue);
+  color: var(--accent, var(--blue));
 }
 
 .intro h1 {
@@ -35,7 +35,7 @@
 }
 
 .intro h1 span {
-  color: var(--blue);
+  color: var(--accent, var(--blue));
 }
 
 .lead {
@@ -50,13 +50,13 @@
   gap: 16px;
   padding: 24px;
   margin-top: 34px;
-  background: #eff3ff;
+  background: var(--surface-tint, #eff3ff);
   border-radius: 6px;
 }
 
 .ideaNote > svg {
   flex-shrink: 0;
-  color: var(--blue);
+  color: var(--accent, var(--blue));
 }
 
 .ideaNote h2 {
@@ -99,7 +99,7 @@
   height: 34px;
   border: 1px solid var(--line);
   border-radius: 50%;
-  color: var(--blue);
+  color: var(--accent, var(--blue));
   font-size: 0.75rem;
 }
 
@@ -120,7 +120,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--blue);
+  color: var(--accent, var(--blue));
   font-size: 0.9rem;
   font-weight: 600;
 }
@@ -134,7 +134,7 @@
   padding: clamp(24px, 2.8vw, 40px);
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #f8f9fb;
+  background: var(--surface-soft, #f8f9fb);
 }
 
 .formHeading {
@@ -203,8 +203,8 @@
   min-width: 0;
   min-height: 48px;
   padding: 12px 13px;
-  background: white;
-  border: 1px solid #d9dde5;
+  background: var(--surface, white);
+  border: 1px solid var(--border, #d9dde5);
   border-radius: 4px;
   color: var(--ink);
   font: inherit;
@@ -277,10 +277,10 @@
   gap: 7px;
   min-height: 42px;
   padding: 9px 12px;
-  background: white;
-  border: 1px solid #d9dde5;
+  background: var(--surface, white);
+  border: 1px solid var(--border, #d9dde5);
   border-radius: 4px;
-  color: #545b67;
+  color: var(--secondary, #545b67);
   font-size: 0.8rem;
   transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
@@ -290,13 +290,13 @@
 }
 
 .chip:hover > span {
-  border-color: var(--blue);
+  border-color: var(--accent, var(--blue));
 }
 
 .chip input:checked + span {
-  color: #1942cd;
-  background: #eef2ff;
-  border-color: var(--blue);
+  color: var(--accent, #1942cd);
+  background: var(--surface-tint, #eef2ff);
+  border-color: var(--accent, var(--blue));
 }
 
 .chip input:checked + span svg {
@@ -330,7 +330,7 @@
   width: 17px;
   height: 17px;
   margin-top: 2px;
-  accent-color: var(--blue);
+  accent-color: var(--accent, var(--blue));
 }
 
 .submit {
@@ -369,7 +369,7 @@
 }
 
 .success > svg {
-  color: var(--blue);
+  color: var(--accent, var(--blue));
 }
 
 .success p {

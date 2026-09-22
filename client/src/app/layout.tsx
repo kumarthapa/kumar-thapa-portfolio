@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import { Providers } from "@/components/Providers";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { SiteFrame } from "@/components/SiteFrame";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { CartDrawer } from "@/components/CartDrawer";
 import "./globals.css";
+import "./portfolio.css";
+import "./showcase.css";
+import "./themes.css";
 export const metadata: Metadata = {
-  title: "KUMARTHAPA — Digital services, thoughtfully built",
+  title: "Kumar Thapa — Design, development & business solutions",
   description:
-    "Design, development, and cloud services for your next ambitious project.",
+    "Thoughtful websites, useful software, and connected business solutions. Explore project concepts and original industry website demos by Kumar Thapa.",
 };
 export default function RootLayout({
   children,
@@ -18,15 +21,15 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
-          <div id="page-shell">
-            <a className="skip-link" href="#main">
-              Skip to content
-            </a>
-            <Header />
-            {children}
-            <Footer />
-          </div>
-          <CartDrawer />
+          <ThemeProvider>
+            <div id="page-shell">
+              <a className="skip-link" href="#main">
+                Skip to content
+              </a>
+              <SiteFrame>{children}</SiteFrame>
+            </div>
+            <CartDrawer />
+          </ThemeProvider>
         </Providers>
       </body>
     </html>

@@ -1,6 +1,10 @@
 # KUMARTHAPA
 
-A complete service storefront using Next.js App Router, TypeScript, Tailwind CSS, Redux Toolkit, Framer Motion, Lucide, Express, and Redis. Includes a responsive black header, catalog filters, accessible cart drawer, persisted cart, server-priced mock checkout, and a dark footer.
+A professional portfolio and service storefront using the existing Next.js App Router, TypeScript, Tailwind CSS, Redux Toolkit, Framer Motion, Lucide, Express, and Redis foundation. Includes six industrial project concepts, six distinct interactive showcase websites, locally generated visuals, and White / Blue / Black themes with White as the default. The original catalog, accessible persistent cart, and server-priced mock checkout remain available at `/services` and `/checkout`.
+
+For the portfolio routes, demo scope, image replacement workflow, editable content, and image prompts, see [Portfolio Content](PORTFOLIO_CONTENT.md).
+
+See [Verification](VERIFICATION.md) for completed browser, build, and API checks and the external setup still needed for deployment and message delivery.
 
 For a consolidated explanation of the technology stack, architecture, features, API, development workflow, and files to edit, see [Project Details](PROJECT_DETAILS.md).
 
@@ -185,7 +189,7 @@ service-studio/
 | GET    | `/health/live`        | Process liveness                                     |
 | GET    | `/health/ready`       | Redis availability; 200 or 503                       |
 
-Errors use `{ error: { message, requestId? } }`. No internal stack traces are sent to users. Prices are sample USD package prices. Delivery windows and photos are placeholders, not business commitments. Image URLs are Unsplash assets and require network access; replace them with licensed, optimized brand imagery before launch.
+Errors use `{ error: { message, requestId? } }`. No internal stack traces are sent to users. Prices are sample USD package prices. Delivery windows and photos are placeholders, not business commitments. Service and portfolio images are local concept assets. Replace them using the content guide when real brand photography and screenshots are available.
 
 ## Production deployment and scaling
 
@@ -217,4 +221,4 @@ Set `CONTACT_WEBHOOK_URL` to an HTTPS adapter you control and optionally set `CO
 
 ## Brand assets
 
-The supplied **KUMARTHAPA** company logos and the separate **KT** brand mark are included in `client/public/brand/`. Originals are copied unchanged. The dark company wordmark appears in the black header and footer; the light version appears on checkout. KT is used for compact mobile branding and the app icon. `BrandLogo.tsx` and the final branding rules in `globals.css` frame the originals' whitespace without modifying their files. Replace the app icon with an approved, tightly framed export if you want a larger mark in browser tabs.
+The supplied **KUMARTHAPA** company logos and the separate **KT** brand mark are included in `client/public/brand/`. Originals are copied unchanged. The original light company wordmark appears with the default White theme; the original dark version appears with Blue and Black themes. Checkout retains its light wordmark. KT is used for compact mobile branding and the app icon. `BrandLogo.tsx` and the final branding rules in `globals.css` frame the originals' whitespace without modifying their files. Replace the app icon with an approved, tightly framed export if you want a larger mark in browser tabs.
