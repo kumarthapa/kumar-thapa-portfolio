@@ -3,8 +3,99 @@ export type VisualAsset = {
   src: string;
   alt: string;
   position?: string;
+  fit?: "cover" | "contain";
   origin: "generated-concept" | "client-supplied";
 };
+
+export type ProjectImage = VisualAsset & {
+  width: number;
+  height: number;
+  caption: string;
+};
+
+export const projectImages = {
+  mattressDashboard: {
+    src: "/visuals/projects/mattress-dashboard.png",
+    alt: "KUMARTHAPA mattress production dashboard with stage distribution and bonding, packing, tape edge, and zip cover charts",
+    caption: "Production dashboard",
+    width: 1672,
+    height: 941,
+    fit: "contain",
+    origin: "client-supplied",
+  },
+  mattressReports: {
+    src: "/visuals/projects/mattress-reports.png",
+    alt: "Mattress manufacturing reports with production-stage filters, quality-control status, and export options",
+    caption: "Production reports & quality control",
+    width: 1672,
+    height: 941,
+    fit: "contain",
+    origin: "client-supplied",
+  },
+  assetTracking: {
+    src: "/visuals/projects/asset-tracking.png",
+    alt: "RFID asset tracking dashboard showing readers, recent scans, asset locations, and search filters",
+    caption: "RFID scans & asset locations",
+    width: 1672,
+    height: 941,
+    fit: "contain",
+    origin: "client-supplied",
+  },
+  fleet: {
+    src: "/visuals/projects/fleet-management.png",
+    alt: "Fleet management screen showing a vehicle route from Mumbai to Bengaluru with checkpoints and a trip timeline",
+    caption: "Vehicle tracking & trip timeline",
+    width: 1672,
+    height: 941,
+    fit: "contain",
+    origin: "client-supplied",
+  },
+  b2b: {
+    src: "/visuals/projects/b2b-software.png",
+    alt: "Kumar Thapa B2B software presentation with customer, order, inventory, sales, and mobile dashboards",
+    caption: "B2B operations across desktop & mobile",
+    width: 1536,
+    height: 1024,
+    fit: "contain",
+    origin: "client-supplied",
+  },
+  crm: {
+    src: "/visuals/projects/crm-software.png",
+    alt: "CRM dashboard presentation with lead sources, a sales pipeline, customer activities, and task management",
+    caption: "Leads, relationships & sales pipeline",
+    width: 1536,
+    height: 1024,
+    fit: "contain",
+    origin: "client-supplied",
+  },
+  inventory: {
+    src: "/visuals/projects/inventory-management.png",
+    alt: "Inventory management presentation with warehouse stock, reorder levels, product movement, and low-stock alerts",
+    caption: "Stock, warehouses & replenishment",
+    width: 1672,
+    height: 941,
+    fit: "contain",
+    origin: "client-supplied",
+  },
+  laundry: {
+    src: "/visuals/projects/laundry-management.png",
+    alt: "RFID laundry management presentation with item tracking, the order processing pipeline, and mobile laundry status",
+    caption: "RFID laundry tracking & order management",
+    width: 1672,
+    height: 941,
+    fit: "contain",
+    origin: "client-supplied",
+  },
+  billing: {
+    src: "/visuals/projects/billing-software.png",
+    alt: "Restaurant and apparel retail POS screens with product selection, order totals, and payment options",
+    caption: "Restaurant & retail point of sale",
+    width: 1536,
+    height: 1024,
+    fit: "contain",
+    origin: "client-supplied",
+  },
+} satisfies Record<string, ProjectImage>;
 
 export const visuals = {
   lakeRoom: {

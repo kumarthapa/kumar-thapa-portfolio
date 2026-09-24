@@ -7,8 +7,8 @@ This continues the existing Next.js / Express / Redis project. The original serv
 | Route            | Content                                                                        |
 | ---------------- | ------------------------------------------------------------------------------ |
 | /                | Portfolio introduction, capabilities, selected work, and about summary         |
-| /projects        | Searchable and filterable industrial solution concepts                         |
-| /projects/[slug] | Individual concept, interface preview, problem, approach, and proposed toolkit |
+| /projects        | Eight searchable and filterable software projects with supplied imagery        |
+| /projects/[slug] | Project image gallery, problem, approach, and proposed toolkit                  |
 | /showcase        | Six original website previews with industry filters and search                 |
 | /showcase/[slug] | Standalone, interactive fictional business website                             |
 | /about           | Introduction and working approach                                              |
@@ -38,21 +38,20 @@ The optional `position` sets the image crop, such as `"60% 40%"`. The layout own
 
 Room, product, and journey entries in `client/src/content/demo-content.ts` each have their own `visual` field. They can point to any manifest entry or an inline asset object.
 
-## Replace an industrial interface concept
+## Update project images
 
-Each item in `client/src/content/portfolio.ts` accepts an optional `visual`:
+Project images live in `client/public/visuals/projects/` and are described by `projectImages` in `client/src/content/visuals.ts`. Each project in `client/src/content/portfolio.ts` requires a primary `visual` and can include more images in `gallery`:
 
 ```ts
-visual: {
-  src: "/visuals/actual-rfid-dashboard.png",
-  alt: "RFID production dashboard showing assembly and dispatch stages",
-  origin: "client-supplied",
-},
+visual: projectImages.mattressDashboard,
+gallery: [projectImages.mattressReports],
 ```
 
-Without this field, `ProjectVisual.tsx` renders the editable category-specific interface illustration. Adding the field replaces it in both the gallery and detail page without changing either component.
+Each image entry includes `src`, descriptive `alt` text, a `caption`, its native `width` and `height`, `fit: "contain"`, and `origin: "client-supplied"`. Cards preserve the complete image inside a consistent frame. Detail galleries use the original aspect ratio and link to the full-resolution file. Next.js optimizes local images for their displayed size. The old generated dashboard renderer has been removed.
 
-The concepts and dashboard figures are illustrative. Replace descriptions and project status only when real project details are available. No invented delivery metrics, client testimonials, or client relationships are presented as fact.
+Nine supplied images cover manufacturing (dashboard and reports), asset tracking, fleet, POS billing, inventory, B2B, CRM, and laundry. The former `/projects/rfid-billing-inventory` URL permanently redirects to `/projects/b2b-software`.
+
+Update descriptions and project status when verified details are available. The technology lists remain proposed toolkits; image contents do not establish client relationships or delivery metrics.
 
 ## Edit sample content
 
@@ -60,15 +59,17 @@ The concepts and dashboard figures are illustrative. Replace descriptions and pr
 - `client/src/content/demo-content.ts`: treatments, menu dishes, room descriptions, sample prices, products, and journeys.
 - `client/src/components/showcase/`: each brand has a separate layout and page copy.
 - `client/src/app/themes.css`: portfolio White / Blue / Black tokens and shared chrome.
-- `client/src/app/portfolio.css`: portfolio layout and interface illustrations.
+- `client/src/app/portfolio.css`: portfolio layout and project image galleries.
 - `client/src/app/showcase.css`: independent demo design systems.
 - `server/src/data/catalog.ts`: original service catalog, prices, and local service thumbnail paths.
 
 Demo interactions are local previews: booking forms do not send messages, the retail bag does not accept payments, the hotel does not query live availability, and Orbit does not create accounts. The real portfolio contact and newsletter forms continue to use their existing backend adapters.
 
-## Generated image provenance
+## Image provenance
 
-All concept photographs and artwork in `client/public/visuals/` were created with the built-in image-generation tool in generation mode, with no input images. Original prompts and output filenames are recorded in `client/src/content/visual-prompts.json`; each slug maps to `public/visuals/[slug].png`. The original company logo files and favicon are separate from these concept assets.
+The nine files in `client/public/visuals/projects/` and `business-studio.png` were supplied by the user. Project source images are preserved without cropping or content edits.
+
+Other concept photographs and artwork were created with the built-in image-generation tool in generation mode, with no input images. Original prompts and output filenames are recorded in `client/src/content/visual-prompts.json`; each slug maps to `public/visuals/[slug].png`. The original company logo files and favicon are separate from these concept assets.
 
 ## Backend connections
 

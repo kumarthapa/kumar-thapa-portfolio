@@ -3,11 +3,11 @@ import { WorkGallery } from "@/components/portfolio/WorkGallery";
 import { CallToAction } from "@/components/portfolio/CallToAction";
 import { PageIntro } from "@/components/portfolio/PageIntro";
 import { AssetImage } from "@/components/portfolio/AssetImage";
-import { visuals } from "@/content/visuals";
+import { projectImages } from "@/content/visuals";
 export const metadata: Metadata = {
-  title: "Project concepts — Kumar Thapa",
+  title: "Software projects — Kumar Thapa",
   description:
-    "Explore RFID, fleet, billing, and inventory software concepts designed around everyday business workflows.",
+    "Explore manufacturing, RFID tracking, fleet, POS, inventory, B2B, CRM, and laundry software projects.",
 };
 export default function ProjectsPage() {
   return (
@@ -22,11 +22,11 @@ export default function ProjectsPage() {
               <span>the way you work.</span>
             </>
           }
-          description="Software and connected systems for the challenges behind the scenes. Explore concepts for manufacturing, logistics, retail, and everyday operations."
-          note="Illustrative project concepts · Sample interfaces and data"
+          description="Software and connected systems for the challenges behind the scenes. Explore projects for manufacturing, logistics, retail, and everyday operations."
+          note="Manufacturing · Tracking · Business software"
           visual={
             <AssetImage
-              asset={visuals.studio}
+              asset={projectImages.b2b}
               priority
               sizes="(max-width: 900px) 100vw, (max-width: 1336px) 50vw, 600px"
             />

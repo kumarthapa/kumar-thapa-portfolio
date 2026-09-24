@@ -105,7 +105,7 @@ export default function Home() {
                 thoughtful software can connect the dots.
               </p>
               <Link className="text-link" href="/projects">
-                All project concepts <ArrowRight size={17} />
+                All projects <ArrowRight size={17} />
               </Link>
             </div>
           </div>

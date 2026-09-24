@@ -106,7 +106,7 @@ export function Footer() {
           </div>
           <div>
             <h3>Discover the work</h3>
-            <Link href="/projects">Software concepts</Link>
+            <Link href="/projects">Software projects</Link>
             <Link href="/showcase">Website demos</Link>
             <Link href="/contact">Discuss your project</Link>
           </div>

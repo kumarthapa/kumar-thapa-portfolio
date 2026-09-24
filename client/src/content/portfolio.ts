@@ -1,4 +1,10 @@
-import { visuals, type VisualAsset, type VisualKey } from "./visuals";
+import {
+  projectImages,
+  visuals,
+  type ProjectImage,
+  type VisualAsset,
+  type VisualKey,
+} from "./visuals";
 
 export type Project = {
   slug: string;
@@ -10,18 +16,11 @@ export type Project = {
   approach: string;
   features: string[];
   stack: string[];
-  accent: string;
-  visual?: VisualAsset;
-  dashboard:
-    | "manufacturing"
-    | "tracking"
-    | "fleet"
-    | "billing"
-    | "inventory"
-    | "integrated";
+  visual: ProjectImage;
+  gallery?: ProjectImage[];
 };
 
-// These are presentation concepts, not claims about completed client engagements.
+// Supplied project imagery; the overview copy does not claim delivery metrics or client engagements.
 export const projects: Project[] = [
   {
     slug: "rfid-manufacturing",
@@ -41,8 +40,8 @@ export const projects: Project[] = [
       "Role-based views for operators and managers",
     ],
     stack: ["React", "Node.js", "PostgreSQL", "RFID"],
-    accent: "#35b8ff",
-    dashboard: "manufacturing",
+    visual: projectImages.mattressDashboard,
+    gallery: [projectImages.mattressReports],
   },
   {
     slug: "rfid-asset-tracking",
@@ -62,8 +61,7 @@ export const projects: Project[] = [
       "Exception review for missing assets",
     ],
     stack: ["Next.js", "MQTT", "PostgreSQL", "RFID"],
-    accent: "#2ed3c1",
-    dashboard: "tracking",
+    visual: projectImages.assetTracking,
   },
   {
     slug: "fleet-management",
@@ -83,16 +81,15 @@ export const projects: Project[] = [
       "Vehicle document tracking",
     ],
     stack: ["React", "Node.js", "Maps", "GPS"],
-    accent: "#69c8ff",
-    dashboard: "fleet",
+    visual: projectImages.fleet,
   },
   {
     slug: "billing-software",
-    title: "Billing Software",
+    title: "POS & Billing Software",
     category: "Business Software",
     eyebrow: "LESS ADMIN. MORE BUSINESS.",
     description:
-      "A focused billing workspace for invoices, customers, and day-to-day sales.",
+      "Restaurant and retail billing with product selection, order management, and clear payment options.",
     challenge:
       "Small teams lose time repeating customer and product information across invoices and sales records.",
     approach:
@@ -104,8 +101,7 @@ export const projects: Project[] = [
       "Store-level reporting",
     ],
     stack: ["Next.js", "TypeScript", "PostgreSQL", "REST API"],
-    accent: "#9a99ff",
-    dashboard: "billing",
+    visual: projectImages.billing,
   },
   {
     slug: "inventory-management",
@@ -125,29 +121,67 @@ export const projects: Project[] = [
       "Auditable transfers and adjustments",
     ],
     stack: ["React", "Node.js", "PostgreSQL", "Barcode"],
-    accent: "#f1ba73",
-    dashboard: "inventory",
+    visual: projectImages.inventory,
   },
   {
-    slug: "rfid-billing-inventory",
-    title: "RFID Billing & Inventory",
+    slug: "b2b-software",
+    title: "B2B Business Management",
     category: "Integrated Solution",
     eyebrow: "ONE CONNECTED OPERATION",
     description:
-      "Connect item identification, billing, and stock updates across the retail journey.",
+      "Bring distributors, retailers, orders, inventory, and sales into one business workspace.",
     challenge:
-      "A sale, a physical item scan, and a stock change should tell the same story, without manual reconciliation.",
+      "Growing distribution teams need a shared view of customers, orders, product availability, and outstanding payments.",
     approach:
-      "Connect RFID reads to a shared product catalog and transaction ledger, with a review step before a sale is finalized.",
+      "Connect customer and distributor records with ordering, inventory, sales reporting, and payment tracking across desktop and mobile.",
     features: [
-      "RFID-assisted product identification",
-      "Reviewed basket and invoice flow",
-      "Stock updates linked to transactions",
-      "Returns and inventory reconciliation",
+      "Distributor and retailer management",
+      "Orders, invoices, and payment tracking",
+      "Inventory visibility and stock alerts",
+      "Sales analytics and mobile dashboard",
     ],
-    stack: ["Next.js", "Node.js", "RFID", "PostgreSQL"],
-    accent: "#53b5ff",
-    dashboard: "integrated",
+    stack: ["Next.js", "Node.js", "PostgreSQL", "REST API"],
+    visual: projectImages.b2b,
+  },
+  {
+    slug: "crm-software",
+    title: "CRM & Customer Management",
+    category: "Business Software",
+    eyebrow: "BUILD STRONGER CUSTOMER RELATIONSHIPS",
+    description:
+      "Keep leads, contacts, deals, and follow-ups connected throughout the customer journey.",
+    challenge:
+      "Customer conversations and next steps are easily lost when sales teams work across separate spreadsheets and inboxes.",
+    approach:
+      "Bring lead sources, deal stages, customer records, upcoming activities, and team tasks together in a shared CRM workspace.",
+    features: [
+      "Lead and contact management",
+      "Deal pipeline and opportunity tracking",
+      "Follow-up activities and task planning",
+      "Lead-source and sales reporting",
+    ],
+    stack: ["Next.js", "TypeScript", "PostgreSQL", "REST API"],
+    visual: projectImages.crm,
+  },
+  {
+    slug: "laundry-management",
+    title: "RFID Laundry Management",
+    category: "Tracking & IoT",
+    eyebrow: "EVERY ITEM. EVERY STAGE.",
+    description:
+      "Follow garments and linen from intake through processing, packing, and delivery with RFID.",
+    challenge:
+      "Laundry operations need to track individual items across customers, processing stages, and delivery batches without losing visibility.",
+    approach:
+      "Link RFID identification to customer orders and processing stages, with exception alerts and mobile order-status access.",
+    features: [
+      "RFID garment and linen tracking",
+      "Intake-to-delivery processing pipeline",
+      "Customer orders and pickup schedules",
+      "Missing-item alerts and mobile status",
+    ],
+    stack: ["React", "Node.js", "RFID", "PostgreSQL"],
+    visual: projectImages.laundry,
   },
 ];
 

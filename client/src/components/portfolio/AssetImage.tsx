@@ -33,7 +33,7 @@ export function AssetImage({
           sizes={sizes}
           preload={priority}
           style={{
-            objectFit: "cover",
+            objectFit: asset.fit || "cover",
             objectPosition: asset.position || "center",
           }}
           onError={() => setFailedSource(asset.src)}

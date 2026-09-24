@@ -52,7 +52,7 @@ Sources: [client lockfile](client/package-lock.json), [server lockfile](server/p
 | Feature | Current behavior |
 | --- | --- |
 | Homepage | Portfolio introduction, capabilities, selected projects and showcase concepts |
-| Projects | Six filterable industrial concepts and individual project pages |
+| Projects | Eight filterable software projects with nine supplied images and full-size image galleries |
 | Showcase | Six distinct interactive demo websites with generated visuals and editable sample content |
 | Themes | White by default; Blue and Black selectable in the header, remembered locally |
 | Services | Original API-backed catalog and ordering flow at `/services` |

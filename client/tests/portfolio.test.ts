@@ -33,7 +33,7 @@ test("every image slot resolves to an asset and has descriptive alternative text
   const assets: VisualAsset[] = [
     ...Object.values(visuals),
     ...showcases.map((item) => item.visual),
-    ...projects.flatMap((item) => (item.visual ? [item.visual] : [])),
+    ...projects.flatMap((item) => [item.visual, ...(item.gallery ?? [])]),
     ...[...journeys, ...lodgeRooms, ...retailProducts].map(
       (item) => item.visual,
     ),

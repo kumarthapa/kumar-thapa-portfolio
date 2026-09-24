@@ -1,5 +1,35 @@
 # Verification record
 
+## Supplied project image integration — 2026-09-23
+
+Reviewed and verified the existing uncommitted portfolio update: eight software projects now use nine supplied images, including the manufacturing dashboard/report gallery and the new CRM and laundry pages. The implementation was already present; this pass completed its production-build, browser, and responsive verification. No application code changes were needed.
+
+Verified with Node.js 24.12.0, npm 11.6.2, Next.js 16.3.4, and Chrome through agent-browser 0.38.1 against the local production frontend.
+
+| Check | Result |
+| --- | --- |
+| Client and server unit tests | PASS: 5 client tests and 11 server tests |
+| TypeScript checks | PASS for both packages |
+| Production builds | PASS for Next.js and Express; all eight project detail routes generated |
+| Supplied image metadata | PASS: all nine source files exist and their native dimensions match the manifest |
+| Home, project gallery, and all eight project details | PASS at 1280px and 390px: headings render, images load with nonzero dimensions, no image fallbacks, no horizontal overflow, and no browser exceptions or console errors |
+| Project image presentation | PASS: cards and detail images use contain sizing; manufacturing displays both supplied images; desktop and mobile screenshots inspected |
+| Full-size image links | PASS: every detail-gallery source returns HTTP 200 with an image content type |
+| Gallery interaction | PASS: CRM search, Business Software category filter, empty results, and Clear filters restoring all eight projects |
+| Navigation | PASS: project card opens its matching detail page; unknown project returns HTTP 404 |
+| Legacy URL | PASS: `/projects/rfid-billing-inventory` returns HTTP 308 to `/projects/b2b-software`, preserving query parameters |
+| Themes | PASS: White, Blue, and Black can be selected and persist after reload on the mobile project gallery |
+| Narrow mobile layout | PASS: project gallery and manufacturing detail have no horizontal overflow at 320px |
+| Whitespace | PASS: `git diff --check` |
+
+### Remaining work
+
+- Docker image builds and Compose startup still need runtime verification; this pass used the local Node.js production frontend.
+- Actual contact and newsletter delivery need configured HTTPS adapters and a delivery acceptance test. No external messages were sent.
+- Deployment verification, a fresh dependency audit, and load testing were not performed in this pass.
+
+These are separate from the completed portfolio image integration. Checkout and showcase transactions remain intentionally demo-only; real payments, durable orders, and customer authentication are outside the current demo scope. Changes remain local and uncommitted.
+
 ## Portfolio completion — 2026-09-20
 
 Verified the portfolio expansion with Node.js 24.12.0, npm 11.6.2, the Next.js 16.3.4 production build, Chrome through agent-browser, Express, and a temporary Redis 7.0.15 instance. The browser used the real local API through the frontend's `/api/*` rewrites. Contact and newsletter delivery were explicitly disabled for these checks; no external messages were sent.

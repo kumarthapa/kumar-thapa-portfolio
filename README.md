@@ -1,6 +1,6 @@
 # KUMARTHAPA
 
-A professional portfolio and service storefront using the existing Next.js App Router, TypeScript, Tailwind CSS, Redux Toolkit, Framer Motion, Lucide, Express, and Redis foundation. Includes six industrial project concepts, six distinct interactive showcase websites, locally generated visuals, and White / Blue / Black themes with White as the default. The original catalog, accessible persistent cart, and server-priced mock checkout remain available at `/services` and `/checkout`.
+A professional portfolio and service storefront using the existing Next.js App Router, TypeScript, Tailwind CSS, Redux Toolkit, Framer Motion, Lucide, Express, and Redis foundation. Includes eight software projects with nine supplied images, six distinct interactive showcase websites, local visuals, and White / Blue / Black themes with White as the default. The original catalog, accessible persistent cart, and server-priced mock checkout remain available at `/services` and `/checkout`.
 
 For the portfolio routes, demo scope, image replacement workflow, editable content, and image prompts, see [Portfolio Content](PORTFOLIO_CONTENT.md).
 
@@ -189,7 +189,7 @@ service-studio/
 | GET    | `/health/live`        | Process liveness                                     |
 | GET    | `/health/ready`       | Redis availability; 200 or 503                       |
 
-Errors use `{ error: { message, requestId? } }`. No internal stack traces are sent to users. Prices are sample USD package prices. Delivery windows and photos are placeholders, not business commitments. Service and portfolio images are local concept assets. Replace them using the content guide when real brand photography and screenshots are available.
+Errors use `{ error: { message, requestId? } }`. No internal stack traces are sent to users. Prices are sample USD package prices. Delivery windows and service photos are placeholders, not business commitments. Project imagery is user-supplied; service and showcase images are local concept assets. See the content guide for image updates.
 
 ## Production deployment and scaling
 

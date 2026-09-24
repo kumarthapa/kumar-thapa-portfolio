@@ -24,7 +24,7 @@ export function WorkGallery({ kind }: { kind: "projects" | "showcase" }) {
     <section
       className="gallery"
       aria-label={
-        kind === "projects" ? "Project concepts" : "Showcase websites"
+        kind === "projects" ? "Projects" : "Showcase websites"
       }
     >
       <div className="gallery-toolbar">
@@ -44,7 +44,7 @@ export function WorkGallery({ kind }: { kind: "projects" | "showcase" }) {
           <input
             value={search}
             onChange={(event) => setSearch(event.target.value)}
-            placeholder="Find your industry"
+            placeholder={kind === "projects" ? "Find a project" : "Find your industry"}
             aria-label={`Search ${kind}`}
           />
         </label>
@@ -53,7 +53,7 @@ export function WorkGallery({ kind }: { kind: "projects" | "showcase" }) {
         <span role="status">
           {count}{" "}
           {kind === "projects"
-            ? "project concept"
+            ? "project"
             : "original website concept"}{count === 1 ? "" : "s"}
         </span>
         <span>
@@ -78,8 +78,7 @@ export function WorkGallery({ kind }: { kind: "projects" | "showcase" }) {
           <Search size={30} />
           <h2>No matches just yet.</h2>
           <p>
-            Try another industry or clear your filters to explore all the
-            concepts.
+            Try another industry or clear your filters to explore all the work.
           </p>
           <button
             className="pf-button"

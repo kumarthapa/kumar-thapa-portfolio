@@ -4,6 +4,16 @@ const config: NextConfig = {
   output: 'standalone',
   poweredByHeader: false,
 
+  async redirects() {
+    return [
+      {
+        source: '/projects/rfid-billing-inventory',
+        destination: '/projects/b2b-software',
+        permanent: true,
+      },
+    ];
+  },
+
   async rewrites() {
     const apiUrl = (process.env.API_URL || 'http://127.0.0.1:4000').replace(/\/$/, '');
 

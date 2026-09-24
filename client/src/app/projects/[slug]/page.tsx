@@ -1,9 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { projects } from "@/content/portfolio";
-import { ProjectVisual } from "@/components/portfolio/ProjectVisual";
+import { AssetImage } from "@/components/portfolio/AssetImage";
 import { CallToAction } from "@/components/portfolio/CallToAction";
 export function generateStaticParams() {
   return projects.map(({ slug }) => ({ slug }));
@@ -16,7 +16,8 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
   return {
-    title: project ? project.title + " — Project concept" : "Project not found",
+    title: project ? project.title + " — Kumar Thapa" : "Project not found",
+    description: project?.description,
   };
 }
 export default async function ProjectPage({
@@ -28,6 +29,7 @@ export default async function ProjectPage({
   const project = projects.find((item) => item.slug === slug);
   if (!project) notFound();
   const next = projects[(projects.indexOf(project) + 1) % projects.length];
+  const images = [project.visual, ...(project.gallery ?? [])];
   return (
     <main id="main" className="portfolio">
       <div className="pf-container">
@@ -38,13 +40,38 @@ export default async function ProjectPage({
           <span className="pf-eyebrow">{project.category}</span>
           <h1>{project.title}</h1>
           <p>{project.description}</p>
-          <div className="concept-note">
-            <i /> Solution concept · Illustrative interface · No live
-            operational data
-          </div>
         </header>
         <div className="project-showroom">
-          <ProjectVisual project={project} />
+          {images.map((asset, index) => (
+            <figure className="project-figure" key={asset.src}>
+              <a
+                className="project-screenshot"
+                style={{ aspectRatio: `${asset.width} / ${asset.height}` }}
+                href={asset.src}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View ${asset.caption} full size (opens in a new tab)`}
+              >
+                <AssetImage
+                  asset={asset}
+                  priority={index === 0}
+                  sizes="(max-width: 1336px) 100vw, 1240px"
+                />
+              </a>
+              <figcaption>
+                <span>{asset.caption}</span>
+                <a
+                  className="text-link"
+                  href={asset.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`View ${asset.caption} full size (opens in a new tab)`}
+                >
+                  View full size <ArrowUpRight size={16} aria-hidden="true" />
+                </a>
+              </figcaption>
+            </figure>
+          ))}
         </div>
         <section className="project-story pf-section">
           <div>
@@ -62,9 +89,9 @@ export default async function ProjectPage({
           <div>
             <span className="pf-eyebrow">DESIGNED TO SUPPORT</span>
             <h2>
-              What the solution
+              Inside the
               <br />
-              could bring together.
+              workflow.
             </h2>
           </div>
           <ul>
@@ -90,7 +117,7 @@ export default async function ProjectPage({
         </section>
         <Link className="next-project" href={"/projects/" + next.slug}>
           <span>
-            EXPLORE ANOTHER CONCEPT<strong>{next.title}</strong>
+            EXPLORE ANOTHER PROJECT<strong>{next.title}</strong>
           </span>
           <ArrowRight size={30} />
         </Link>

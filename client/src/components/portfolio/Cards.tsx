@@ -10,14 +10,14 @@ export function ProjectCard({ project }: { project: Project }) {
       <Link
         href={`/projects/${project.slug}`}
         className="card-visual-link"
-        aria-label={`View ${project.title} concept`}
+        aria-label={`View ${project.title} project`}
       >
         <ProjectVisual project={project} />
       </Link>
       <div className="work-card-body">
         <div className="card-kicker">
           <span>{project.category}</span>
-          <span>CONCEPT</span>
+          <span>PROJECT</span>
         </div>
         <h2>
           <Link href={`/projects/${project.slug}`}>{project.title}</Link>

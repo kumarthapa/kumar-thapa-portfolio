@@ -10,7 +10,7 @@ import "./themes.css";
 export const metadata: Metadata = {
   title: "Kumar Thapa — Design, development & business solutions",
   description:
-    "Thoughtful websites, useful software, and connected business solutions. Explore project concepts and original industry website demos by Kumar Thapa.",
+    "Thoughtful websites, useful software, and connected business solutions. Explore software projects and original industry website demos by Kumar Thapa.",
 };
 export default function RootLayout({
   children,
