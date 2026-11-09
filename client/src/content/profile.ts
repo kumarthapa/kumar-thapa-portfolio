@@ -6,7 +6,7 @@ export const profile = {
     "Backend-focused software developer with 5+ years of hands-on development experience. I build and maintain business systems, REST APIs, data workflows, and integrations across retail, manufacturing, RFID tracking, restaurant operations, and logistics.",
   email: "kumar9114526@gmail.com",
   // Set your WhatsApp recipient as country code plus number, digits only.
-  whatsapp: "",
+  whatsapp: "917085534532",
   linkedin: "https://www.linkedin.com/in/kumarthapa911",
   github: "https://github.com/kumarthapa",
 };
