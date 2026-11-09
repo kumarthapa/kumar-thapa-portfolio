@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Providers } from "@/components/Providers";
 import { SiteFrame } from "@/components/SiteFrame";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { CartDrawer } from "@/components/CartDrawer";
 import "./globals.css";
 import "./portfolio.css";
 import "./showcase.css";
@@ -28,7 +27,6 @@ export default function RootLayout({
               </a>
               <SiteFrame>{children}</SiteFrame>
             </div>
-            <CartDrawer />
           </ThemeProvider>
         </Providers>
       </body>

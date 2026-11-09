@@ -1,9 +1,10 @@
 "use client";
 import Link from "next/link";
 import { BrandLogo } from "./BrandLogo";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin } from "lucide-react";
 import { useState } from "react";
 import { api } from "@/lib/api";
+import { profile } from "@/content/profile";
 import { useTheme } from "./ThemeProvider";
 export function Footer() {
   const { theme } = useTheme();
@@ -86,9 +87,23 @@ export function Footer() {
           </div>
         </div>
         <div className="footer-links">
-          <Link className="footer-brand" href="/" aria-label="KUMARTHAPA home">
-            <BrandLogo theme={theme === "white" ? "light" : "dark"} />
-          </Link>
+          <div className="footer-brand-group">
+            <Link className="footer-brand" href="/" aria-label="KUMARTHAPA home">
+              <BrandLogo theme={theme === "white" ? "light" : "dark"} />
+            </Link>
+            <div
+              className="footer-socials"
+              role="group"
+              aria-label="Social profiles"
+            >
+              <a href={profile.github} target="_blank" rel="noreferrer">
+                <Github aria-hidden="true" /> GitHub
+              </a>
+              <a href={profile.linkedin} target="_blank" rel="noreferrer">
+                <Linkedin aria-hidden="true" /> LinkedIn
+              </a>
+            </div>
+          </div>
           <div>
             <h3>Explore</h3>
             <Link href="/services#services">Services</Link>

@@ -14,6 +14,11 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
 }
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
 body {
   margin: 0;
   background: #fff;
@@ -549,6 +554,12 @@ footer {
 .footer-links > .logo {
   align-self: start;
 }
+.footer-brand-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
 .footer-links h3 {
   font-size: 0.875rem;
   letter-spacing: 0;
@@ -572,6 +583,25 @@ footer {
 }
 .socials svg {
   width: 19px;
+}
+.footer-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #a6a7ae;
+  font-size: 0.875rem;
+}
+.footer-socials a:hover {
+  color: #fff;
+}
+.footer-socials svg {
+  width: 17px;
+  height: 17px;
 }
 .footer-bottom {
   display: flex;
@@ -1115,7 +1145,7 @@ footer {
   .footer-links {
     grid-template-columns: 1fr 1fr;
   }
-  .footer-brand {
+  .footer-brand-group {
     grid-column: 1/-1;
   }
   .footer-brand .company-wordmark {

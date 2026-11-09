@@ -24,12 +24,19 @@ service-studio/
   client/src/app/layout.tsx
   client/src/app/not-found.tsx
   client/src/app/page.tsx
+  client/src/app/profile/page.tsx
+  client/src/app/profile/profile.module.css
   client/src/components/BrandLogo.tsx
   client/src/components/CartDrawer.tsx
   client/src/components/Footer.tsx
   client/src/components/Header.tsx
   client/src/components/Providers.tsx
   client/src/components/ServiceCard.tsx
+  client/src/content/demo-content.ts
+  client/src/content/portfolio.ts
+  client/src/content/profile.ts
+  client/src/content/visual-prompts.json
+  client/src/content/visuals.ts
   client/src/lib/api.ts
   client/src/lib/types.ts
   client/src/store/cartSlice.ts

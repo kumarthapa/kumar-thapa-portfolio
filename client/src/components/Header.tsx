@@ -15,6 +15,7 @@ export function Header() {
     ["Projects", "/projects"],
     ["Showcase", "/showcase"],
     ["About", "/about"],
+    ["Profile", "/profile"],
   ];
   const showCart = pathname.startsWith("/services") || pathname === "/checkout";
   const [menu, setMenu] = useState(false);

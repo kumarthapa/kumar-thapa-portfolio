@@ -1,7 +1,12 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  CheckCircle2,
+} from "lucide-react";
 import { projects } from "@/content/portfolio";
 import { AssetImage } from "@/components/portfolio/AssetImage";
 import { CallToAction } from "@/components/portfolio/CallToAction";

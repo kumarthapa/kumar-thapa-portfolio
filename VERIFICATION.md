@@ -58,7 +58,7 @@ The pending work was final integration and browser verification of the six proje
 External setup and deployment checks remain separate from the completed portfolio/demo work:
 
 - Docker Compose image builds were not run: the Docker socket requires administrator access and `sudo` requires an interactive password. The local frontend/API/Redis path was verified instead.
-- Actual contact and newsletter delivery require configured HTTPS adapters and a delivery acceptance test. Unit tests cover adapter success, rejection, timeout, and idempotency behavior for contact inquiries.
+- The browser contact form opens WhatsApp or email drafts; the separate contact API and newsletter delivery require configured HTTPS adapters and a delivery acceptance test. Unit tests cover adapter success, rejection, timeout, and idempotency behavior for the contact API.
 - No deployment, payment processing, load testing, or fresh dependency audit was performed in this pass. Showcase bookings and retail checkout remain intentionally local demos; the portfolio checkout remains an estimate without placing an order.
 
 ## Initial verification — 2026-09-05

@@ -2,17 +2,21 @@
 import { usePathname } from "next/navigation";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { CartDrawer } from "./CartDrawer";
 import { useTheme } from "./ThemeProvider";
 
 export function SiteFrame({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const { theme } = useTheme();
-  if (pathname.startsWith("/showcase/")) return <>{children}</>;
+  if (pathname === "/profile" || pathname.startsWith("/showcase/")) {
+    return <>{children}</>;
+  }
   return (
     <div className="site-frame" data-theme={theme}>
       <Header />
       {children}
       <Footer />
+      <CartDrawer />
     </div>
   );
 }

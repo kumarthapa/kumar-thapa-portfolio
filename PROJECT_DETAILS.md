@@ -4,7 +4,7 @@ This document describes the `service-studio` project as implemented in this repo
 
 ## 1. Project overview
 
-KUMARTHAPA is a digital services storefront. Visitors can browse service packages, filter them by category, add them to a cart, and review an estimate calculated by the backend.
+KUMARTHAPA has two audiences: a recruiter-facing developer profile at `/profile` and a freelance services storefront. Recruiters can review Kumar Thapa’s experience and engineering projects on the profile route; the storefront lets freelance clients browse service packages, add them to a cart, and review an estimate calculated by the backend.
 
 The application includes a React frontend built with Next.js, a separate Express API, Redis for caching and request limits, and an Nginx gateway. Docker Compose starts all four services together.
 
@@ -13,6 +13,7 @@ The application includes a React frontend built with Next.js, a separate Express
 | Project directory | `service-studio` |
 | Brand | KUMARTHAPA, with a separate KT mark |
 | Homepage | `http://localhost:8080` |
+| Recruiter profile | `http://localhost:8080/profile` |
 | Checkout page | `http://localhost:8080/checkout` |
 | Currency | USD; prices are stored as integer cents |
 | Current checkout behavior | Generates an estimate; does not take payment or create an order |
@@ -52,6 +53,7 @@ Sources: [client lockfile](client/package-lock.json), [server lockfile](server/p
 | Feature | Current behavior |
 | --- | --- |
 | Homepage | Portfolio introduction, capabilities, selected projects and showcase concepts |
+| Recruiter profile | Experience, selected engineering projects, technical skills, education, and professional contact links; uses a separate shell without service, cart, or storefront footer links |
 | Projects | Eight filterable software projects with nine supplied images and full-size image galleries |
 | Showcase | Six distinct interactive demo websites with generated visuals and editable sample content |
 | Themes | White by default; Blue and Black selectable in the header, remembered locally |
@@ -66,7 +68,7 @@ Sources: [client lockfile](client/package-lock.json), [server lockfile](server/p
 | Newsletter form | Requires consent and an HTTPS provider adapter; returns 503 when unavailable |
 | Branding | Company logos and KT mark are included as local image assets |
 
-The portfolio is defined by [the homepage](client/src/app/page.tsx), with the original catalog at [services](client/src/app/services/page.tsx) and estimate flow at [checkout](client/src/app/checkout/page.tsx). See [Portfolio Content](PORTFOLIO_CONTENT.md) for all new routes and editable visual assets. [The root layout](client/src/app/layout.tsx) adds the shared providers, header, footer, and cart drawer. There are also not-found and error components.
+The recruiter profile is defined by [the profile page](client/src/app/profile/page.tsx) and editable data in [profile.ts](client/src/content/profile.ts). It has its own navigation and footer, so recruiters are not shown service or checkout links. The rest of the portfolio is defined by [the homepage](client/src/app/page.tsx), with the original catalog at [services](client/src/app/services/page.tsx) and estimate flow at [checkout](client/src/app/checkout/page.tsx). See [Portfolio Content](PORTFOLIO_CONTENT.md) for all routes and editable visual assets. [The root layout](client/src/app/layout.tsx) adds shared providers; [SiteFrame](client/src/components/SiteFrame.tsx) selects the appropriate page chrome. There are also not-found and error components.
 
 ### Included service catalog
 
@@ -123,7 +125,8 @@ Redis persistence is disabled in Compose. Restarting Redis resets its cache and 
 service-studio/
 ├── client/
 │   ├── public/brand/           Company logos and KT mark
-│   ├── src/app/                Pages, layout, global styles, errors, and icon
+│   ├── src/app/                Portfolio, recruiter profile, storefront, layout, and styles
+│   ├── src/content/profile.ts  Editable recruiter profile and project details
 │   ├── src/components/         Header, footer, cart, service cards, and providers
 │   ├── src/store/              Redux store, cart slice, and typed hooks
 │   ├── src/lib/                API helper, UI types, and money formatting

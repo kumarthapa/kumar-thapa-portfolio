@@ -1,6 +1,6 @@
 # KUMARTHAPA
 
-A professional portfolio and service storefront using the existing Next.js App Router, TypeScript, Tailwind CSS, Redux Toolkit, Framer Motion, Lucide, Express, and Redis foundation. Includes eight software projects with nine supplied images, six distinct interactive showcase websites, local visuals, and White / Blue / Black themes with White as the default. The original catalog, accessible persistent cart, and server-priced mock checkout remain available at `/services` and `/checkout`.
+A professional portfolio and service storefront using the existing Next.js App Router, TypeScript, Tailwind CSS, Redux Toolkit, Framer Motion, Lucide, Express, and Redis foundation. It includes a recruiter-focused profile at `/profile`, with experience and selected engineering projects, alongside eight portfolio projects and six interactive showcase websites. The original catalog, accessible persistent cart, and server-priced mock checkout remain available at `/services` and `/checkout`.
 
 For the portfolio routes, demo scope, image replacement workflow, editable content, and image prompts, see [Portfolio Content](PORTFOLIO_CONTENT.md).
 
@@ -151,7 +151,8 @@ See `TREE.txt` for the complete file list.
 ```text
 service-studio/
 ├── client/
-│   ├── src/app/                 # Home, checkout, errors, layout, Tailwind/CSS
+│   ├── src/app/                 # Portfolio, profile, storefront, checkout, and styles
+│   ├── src/content/profile.ts   # Editable recruiter profile, projects, experience, and skills
 │   ├── src/components/          # Header, Footer, ServiceCard, CartDrawer, Providers
 │   ├── src/store/               # Redux store, cart slice, typed hooks
 │   ├── src/lib/                 # API client, shared frontend types, money formatting
@@ -213,11 +214,13 @@ This Compose file is a single-host deployment, not high availability or proof of
 
 Set `NEWSLETTER_WEBHOOK_URL` to an HTTPS endpoint you control and optionally `NEWSLETTER_WEBHOOK_TOKEN`, then recreate the server. The adapter receives `{ email, consent: true, consentedAt, source }`, a bearer token if configured, and a SHA-256 email idempotency key. It must return 2xx only after durably accepting the request, handle duplicate requests, and implement confirmation/unsubscribe with your email platform. The application validates email and consent, applies the shared rate limit, rejects redirects, and bounds upstream calls to five seconds. With no endpoint configured, it returns 503 and does not store an email or claim success. No external newsletter endpoint was contacted during this build.
 
-## Enable contact inquiries
+## Contact form and API
 
-The `/contact` route renders `client/src/app/contact/letstalk.tsx`. Desktop, mobile, and footer navigation link to this page. The form supports service selections, optional budget and timing, browser validation, loading, retry, and confirmation states. Failed submissions preserve the entered details.
+The `/contact` route renders `client/src/app/contact/letstalk.tsx`. It validates the inquiry in the browser and prepares the same details for WhatsApp or email. WhatsApp opens a prefilled draft for the site owner; the visitor still presses Send. Email opens the visitor’s default email app. The form includes an optional phone number, with `+91` prefilled.
 
-Set `CONTACT_WEBHOOK_URL` to an HTTPS adapter you control and optionally set `CONTACT_WEBHOOK_TOKEN`, then recreate the server. For local Node.js development, export these variables in the server environment before starting it. The adapter receives `{ name, email, company, services, budget, timeline, message, consent: true, submittedAt, source: "kumarthapa-contact" }`, with a bearer token when configured. It should deliver to your inbox or CRM, return 2xx only after durably accepting the inquiry, and deduplicate retries using the SHA-256 `Idempotency-Key` header. The application uses the existing API rate and request-size limits, validates all fields server-side, rejects redirects, and bounds adapter calls to five seconds. Without an adapter, the API returns 503; no message is stored or marked as sent. The form’s budget ranges use USD, matching the catalog.
+The email recipient reuses `profile.email` in `client/src/content/profile.ts`. Set `profile.whatsapp` in that file to the owner’s international WhatsApp number using digits only, including the country code (for example, `919876543210`). It is blank until configured, and the WhatsApp option displays a message if no valid recipient is set. The form keeps its entered values after either option is selected.
+
+`POST /api/contact` remains available as a separate server endpoint for API clients. To enable that endpoint, set `CONTACT_WEBHOOK_URL` to an HTTPS adapter you control and optionally set `CONTACT_WEBHOOK_TOKEN`. The adapter receives `{ name, email, company, services, budget, timeline, message, consent: true, submittedAt, source: "kumarthapa-contact" }`, with a bearer token when configured. It should deliver to your inbox or CRM, return 2xx only after durably accepting the inquiry, and deduplicate retries using the SHA-256 `Idempotency-Key` header. The API applies the existing rate and request-size limits, validates fields server-side, rejects redirects, and bounds adapter calls to five seconds. Without an adapter, the API returns 503; no message is stored or marked as sent. The browser form now opens WhatsApp or email drafts directly instead of posting to this endpoint. The form’s budget ranges use USD, matching the catalog.
 
 ## Brand assets
 

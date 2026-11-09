@@ -7,6 +7,7 @@ This continues the existing Next.js / Express / Redis project. The original serv
 | Route            | Content                                                                        |
 | ---------------- | ------------------------------------------------------------------------------ |
 | /                | Portfolio introduction, capabilities, selected work, and about summary         |
+| /profile         | Recruiter-facing developer profile, experience, selected projects, skills, and contact |
 | /projects        | Eight searchable and filterable software projects with supplied imagery        |
 | /projects/[slug] | Project image gallery, problem, approach, and proposed toolkit                  |
 | /showcase        | Six original website previews with industry filters and search                 |
@@ -17,6 +18,8 @@ This continues the existing Next.js / Express / Redis project. The original serv
 | /contact         | Existing project inquiry form                                                  |
 
 The header theme control defaults to **White** and offers **Blue** and **Black**. The preference is stored as `kumarthapa-theme` in localStorage and also applies to the service cart. Showcase websites retain their own brand identities.
+
+The /profile route has a standalone navigation and footer. It does not show links to services, checkout, or the freelance inquiry flow. Update its resume-based content in client/src/content/profile.ts; project visuals are portfolio representations, and project descriptions focus on Kumar’s engineering contributions.
 
 ## Replace a temporary image
 
@@ -63,7 +66,7 @@ Update descriptions and project status when verified details are available. The 
 - `client/src/app/showcase.css`: independent demo design systems.
 - `server/src/data/catalog.ts`: original service catalog, prices, and local service thumbnail paths.
 
-Demo interactions are local previews: booking forms do not send messages, the retail bag does not accept payments, the hotel does not query live availability, and Orbit does not create accounts. The real portfolio contact and newsletter forms continue to use their existing backend adapters.
+Demo interactions are local previews: booking forms do not send messages, the retail bag does not accept payments, the hotel does not query live availability, and Orbit does not create accounts. The portfolio contact page prepares WhatsApp or email drafts in the browser; newsletter signup continues to use its backend adapter.
 
 ## Image provenance
 
@@ -75,4 +78,4 @@ Other concept photographs and artwork were created with the built-in image-gener
 
 The browser API helper remains `client/src/lib/api.ts`. It calls same-origin `/api/*`. In local development, `client/next.config.ts` forwards those calls to `API_URL` (default `http://127.0.0.1:4000`). Express routes remain in `server/src/routes/index.ts`.
 
-The portfolio and showcases render without the API. Services, checkout quotes, contact delivery, and newsletter signup require the existing API and Redis setup. Actual inquiry and newsletter delivery also require their configured webhook providers. See `RUN_COMMANDS.md` and `README.md`.
+The portfolio and showcases render without the API. Services, checkout quotes, and newsletter signup require the existing API and Redis setup. The contact page prepares WhatsApp or email drafts in the visitor’s browser; the site owner’s WhatsApp number is configured in `client/src/content/profile.ts`. The separate `/api/contact` endpoint still requires the API, Redis, and an HTTPS webhook provider. See `RUN_COMMANDS.md` and `README.md`.
